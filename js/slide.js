@@ -113,10 +113,6 @@ function createSlides(pres) {
 				con = value;
 				break;
 
-			case 'not':
-				not = value;
-				break;
-
 			//globals (not for slides, but for interface colors)
 			case 'fro':
 				fro = value;
@@ -125,18 +121,6 @@ function createSlides(pres) {
 			case 'int':
 				int = value;
 				break;
-
-			// case 'hi1':
-			// 	hi1 = value;
-			// 	break;
-			//
-			// case 'hi2':
-			// 	hi2 = value;
-			// 	break;
-			//
-			// case 'hi3':
-			// 	hi3 = value;
-			// 	break;
 		}
 	}
 	//push last slide

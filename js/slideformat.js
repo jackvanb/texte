@@ -46,16 +46,6 @@ function formatString(string, symbol) {
 	return string;
 }
 
-//formats image for color or background use
-// function formatImage(image) {
-// 	if (image.substring(0, 1) === "#") return image;
-// 	else {
-// 		image = image.replace(' ', '%20');
-// 		image = 'images/ ' + image + '.png';
-// 		return image;
-// 	}
-// }
-
 //finds all instances of a substring(needle) in a string(haystack)
 function allStringPositions(haystack, needle) {
 	var offset = 0;
