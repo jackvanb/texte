@@ -23,7 +23,7 @@ function loadSlide(n) {
 	slideNum = n;
 
 	//load sidebar
-	loadSidebar();
+	// loadSidebar();
 
 	//load content
 	loadContent();
@@ -36,58 +36,58 @@ function loadSlide(n) {
 }
 
 //loads and renders sidebar
-function loadSidebar() {
-	var sidebar = document.getElementById('side');
-	var bars = sidebar.getElementsByTagName('*');
-
-	while (sidebar.firstChild) {
-		sidebar.removeChild(sidebar.firstChild);
-	}
-
-	sideBar();
-	bars = sidebar.getElementsByTagName('*');
-	
-	bars[slideNum * 3].className = 'bar-select';
-}
+// function loadSidebar() {
+// 	var sidebar = document.getElementById('side');
+// 	var bars = sidebar.getElementsByTagName('*');
+//
+// 	while (sidebar.firstChild) {
+// 		sidebar.removeChild(sidebar.firstChild);
+// 	}
+//
+// 	sideBar();
+// 	bars = sidebar.getElementsByTagName('*');
+//
+// 	bars[slideNum * 3].className = 'bar-select';
+// }
 
 //creates sidebar menu
-function sideBar() {
-	
-	//holds current section
-	var section;
-
-	for (var i = 0; i < slides.length; i++) {
-
-		//create generic elements
-		var bar = document.createElement('div');
-		var anchor = document.createElement('a');
-		var span = document.createElement('span');
-		var text = document.createTextNode(slides[i].til);
-		var num = document.createTextNode(i);
-
-		anchor.appendChild(text);
-		span.appendChild(num);
-		bar.appendChild(span);
-		bar.appendChild(anchor);
-		
-		span.className = 'bar-number';
-
-		anchor.href = 'javascript:void(0)';
-		anchor.onclick = makeOnClickCallback(i);
-
-		//make special bar for first section slide
-		if (slides[i].sec != section) {
-			section = slides[i].sec;
-			bar.className = 'bar-section';
-			document.getElementById('side').appendChild(bar);
-			continue;
-		}
-
-		//otherwise, make regular bar
-		bar.className = 'bar-slide';
-		document.getElementById('side').appendChild(bar);
-	}
-}
+// function sideBar() {
+//
+// 	//holds current section
+// 	var section;
+//
+// 	for (var i = 0; i < slides.length; i++) {
+//
+// 		//create generic elements
+// 		var bar = document.createElement('div');
+// 		var anchor = document.createElement('a');
+// 		var span = document.createElement('span');
+// 		var text = document.createTextNode(slides[i].til);
+// 		var num = document.createTextNode(i);
+//
+// 		anchor.appendChild(text);
+// 		span.appendChild(num);
+// 		bar.appendChild(span);
+// 		bar.appendChild(anchor);
+//
+// 		span.className = 'bar-number';
+//
+// 		anchor.href = 'javascript:void(0)';
+// 		anchor.onclick = makeOnClickCallback(i);
+//
+// 		//make special bar for first section slide
+// 		if (slides[i].sec != section) {
+// 			section = slides[i].sec;
+// 			bar.className = 'bar-section';
+// 			document.getElementById('side').appendChild(bar);
+// 			continue;
+// 		}
+//
+// 		//otherwise, make regular bar
+// 		bar.className = 'bar-slide';
+// 		document.getElementById('side').appendChild(bar);
+// 	}
+// }
 
 //loads and renders content
 function loadContent() {
@@ -101,44 +101,15 @@ function loadContent() {
 	}
 
 	//background
-	if (currentSlide.img.substring(0, 1) === '#') {
-		content.style.backgroundColor = currentSlide.img;
-		content.style.backgroundImage = '';
-	} else {
-		//create onload event to ensure loading of background image
-		var imageLoad = new Image();
-
-		imageLoad.onload = function() {
-			currentSlide.img = currentSlide.img.replace(' ', '%20');
-			content.style.backgroundImage = 'url(' + imageLoad.src + ')';
-		}
-
-		imageLoad.src = 'images/' + currentSlide.img;
-		if (imageLoad.complete) imageLoad.onload();
-	}
+	content.style.backgroundColor = currentSlide.img;
 
 	//title
 	var title = document.createElement('div');
-	
+
 	title.insertAdjacentHTML('afterbegin', currentSlide.til);
 	title.style.color = currentSlide.col;
-	
-	if (currentSlide.con.length == 0) {
-		title.className = 'content-big-title';
-		content.style.textAlign = "center";
-		content.style.paddingTop = "calc(50vh - 57.5px)";
-		content.appendChild(title);
-	} else {
-		title.className = 'content-title';
-		content.style.textAlign = "left";
-		content.style.paddingTop = "60px";
 
-		var divider = document.createElement('div');
-		divider.className = 'divider';
-		divider.style.backgroundColor = currentSlide.col;
-		content.appendChild(title);
-		content.appendChild(divider);
-	}
+	content.appendChild(title);
 
 	//content
 	var slideContent = document.createElement('span');

@@ -7,7 +7,7 @@ function formatString(string, symbol) {
 	} else {
 		//all string positions
 		var positions = allStringPositions(string, symbol + '[');
-		if (positions.length > 0) {
+		while (positions.length > 0) {
 			//find closing ']'
 			var end = string.indexOf(']', positions[0]);
 
@@ -47,14 +47,14 @@ function formatString(string, symbol) {
 }
 
 //formats image for color or background use
-function formatImage(image) {
-	if (image.substring(0, 1) === "#") return image;
-	else {
-		image = image.replace(' ', '%20');
-		image = 'images/ ' + image + '.png';
-		return image;
-	}
-}
+// function formatImage(image) {
+// 	if (image.substring(0, 1) === "#") return image;
+// 	else {
+// 		image = image.replace(' ', '%20');
+// 		image = 'images/ ' + image + '.png';
+// 		return image;
+// 	}
+// }
 
 //finds all instances of a substring(needle) in a string(haystack)
 function allStringPositions(haystack, needle) {
@@ -95,7 +95,7 @@ function createCustomLink(string) {
 	var link = string.substring(accessor + 1, string.length);
 	link = link.trim();
 
-	return '<a href="' + link + '" class="intended-link">' + word + '</a>';
+	return '<a onclick="loadSlide(' + link + ')" class="intended-link">' + word + '</a>';
 }
 
 //removes symbol and [] (first two characters and last character) from string

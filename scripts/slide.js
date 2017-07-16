@@ -7,12 +7,12 @@ function Slide(img, col, sec, til, con, not) {
 	this.con = con;
 	this.not = not;
 
-	this.image = formatImage(this.img);
-	
+	this.image = img;
+
 	this.con = formatString(this.con, '#');
 	this.con = formatString(this.con, '_');
 	this.con = formatString(this.con, '*');
-	
+
 	this.not = formatString(this.not, '#');
 	this.not = formatString(this.not, '_');
 	this.not = formatString(this.not, '*');
@@ -58,7 +58,7 @@ function createSlides(pres) {
 
 		//start new slide if line starts with '='
 		if (pres[i].substring(0, 1) === '=') {
-			
+
 			//everything before first '=' is not considered a slide, can be used to declare custom theme
 			if (atSlides) {
 				var s = new Slide(img, col, sec, til, con, not);
@@ -86,8 +86,8 @@ function createSlides(pres) {
 
 		//if key wasn't found, continue adding to the previously acquired attribute
 		if (!newKey) {
-			if (pres[i].length == 2 && pres[i].substring(0, 1) === '+') value = value + '<br>';
-			else if (pres[i].substring(0, 1) === '-') value = value + '<span class="content-indent">' + pres[i].substring(1, pres[i].length) + '</span>';
+			if (pres[i].substring(0, 1) === '+')  value = value + '<p>' + pres[i].substring(1, pres[i].length) + '</p>';
+			else if (pres[i].substring(0, 1) === '-') value = value + '<p class="l">' + pres[i].substring(1, pres[i].length) + '</p>';
 			else value = value + pres[i];
 		}
 
@@ -126,17 +126,17 @@ function createSlides(pres) {
 				int = value;
 				break;
 
-			case 'hi1':
-				hi1 = value;
-				break;
-
-			case 'hi2':
-				hi2 = value;
-				break;
-
-			case 'hi3':
-				hi3 = value;
-				break;
+			// case 'hi1':
+			// 	hi1 = value;
+			// 	break;
+			//
+			// case 'hi2':
+			// 	hi2 = value;
+			// 	break;
+			//
+			// case 'hi3':
+			// 	hi3 = value;
+			// 	break;
 		}
 	}
 	//push last slide

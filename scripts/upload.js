@@ -19,8 +19,8 @@ function handleFileSelect(evt) {
 			presentation.push(lines[line]);
 		}
 		dropZone.parentNode.removeChild(dropZone);
-		updateTimer();
-		updateClock();
+		// updateTimer();
+		// updateClock();
 		createSlides(presentation);
 	};
 	reader.readAsText(file);
