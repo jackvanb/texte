@@ -1,26 +1,25 @@
-//formats string to support links #[text>link], bolding *[text], and italics _[text]
+// Format string to support styling
 function formatString(string, symbol) {
 
-	//if number of opening brackets and closing brackets is uneven count, display error
+	// Check for bracket mismatches
 	if (allStringPositions(string, '[').length != allStringPositions(string, ']').length) {
-		window.alert('Uneven number of brackets found in string: \n\n '+ string);
+		window.alert('Uneven number of brackets found in string: \n\n '+ string)
 	} else {
-		//all string positions
-		var positions = allStringPositions(string, symbol + '[');
+		var positions = allStringPositions(string, symbol + '[')
+
 		while (positions.length > 0) {
 			//find closing ']'
-			var end = string.indexOf(']', positions[0]);
+			var end = string.indexOf(']', positions[0])
 
 			//check if any other '[]' pairs exist within substring, suggesting we haven't found the proper ']'
 			//find next ']' until we've found the proper ']'
 			while (allStringPositions(string.substring(positions[0], end, '[')).length != allStringPositions(string.substring(positions[0], end), ']').length) {
-				end = string.indexOf(']', end + 1);
+				end = string.indexOf(']', end + 1)
 			}
 
 			//run proper format rule
-			var selectString = string.substring(positions[0], end + 1);
-
-			var format;
+			var selectString = string.substring(positions[0], end + 1),
+					format
 
 			switch (symbol) {
 				case '#':
@@ -37,60 +36,60 @@ function formatString(string, symbol) {
 			}
 
 			//replace string with new format
-			string = string.replace(selectString, format);
+			string = string.replace(selectString, format)
 
 			//find next set to parse
-			positions = allStringPositions(string, symbol + '[');
+			positions = allStringPositions(string, symbol + '[')
 		}
 	}
-	return string;
+	return string
 }
 
 //finds all instances of a substring(needle) in a string(haystack)
 function allStringPositions(haystack, needle) {
-	var offset = 0;
-	var all = [];
-	var pos;
+	var offset = 0,
+			all = [],
+			pos;
 
 	while ((pos = haystack.indexOf(needle, offset)) !== -1) {
-		offset = pos + 1;
-		all.push(pos);
+		offset = pos + 1
+		all.push(pos)
 	}
 
-	return all;
+	return all
 }
 
 //takes string and makes it italic
 function makeItalic(string) {
-	string = cleanString(string);
-	string = '<em>' + string + '</em>';
-	return string;
+	string = cleanString(string)
+	string = '<em>' + string + '</em>'
+	return string
 }
 
 //takes string and makes it bold
 function makeBold(string) {
-	string = cleanString(string);
-	string = '<strong>' + string + '</strong>';
-	return string;
+	string = cleanString(string)
+	string = '<strong>' + string + '</strong>'
+	return string
 }
 
 //takes $string and makes it into custom link with custom $style
 function createCustomLink(string) {
-	string = cleanString(string);
-	var accessor = string.indexOf('>');
+	string = cleanString(string)
 
-	var word = string.substring(0, accessor);
-	word = word.trim();
+	let accessor = string.indexOf('>'),
+			word = string.substring(0, accessor),
+			link = string.substring(accessor + 1, string.length)
 
-	var link = string.substring(accessor + 1, string.length);
-	link = link.trim();
+	word = word.trim()
+	link = link.trim()
 
 	return '<a onclick="loadSlide(' + link + ')" class="intended-link">' + word + '</a>';
 }
 
 //removes symbol and [] (first two characters and last character) from string
 function cleanString(string) {
-	string = string.substring(2);
-	string = string.substring(0, string.length - 1);
-	return string;
+	string = string.substring(2)
+	string = string.substring(0, string.length - 1)
+	return string
 }
