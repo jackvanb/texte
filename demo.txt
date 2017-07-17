@@ -1,0 +1,115 @@
+// Demo by Josh Avanier
+
+fro: #2a2a2a
+int: #f5f5f5
+
+=This is a Page.
+
+// This is a comment. It will not show up in the game
+
+til: Demo
+con:
++ This is a short demo game built with Texte. Enjoy.
+
+// This is a link. The > symbol tells which page number to link to
+
++ #[Begin>1]
+
+=This is another Page
+img: #634954
+col: #f5f5f5
+
+til: A Forest Path
+con:
++ You are walking down a path through a forest. An endless orchestra of whispering trees and chirping birds play around you. The sun had already dipped below the mountains and the night rolls over the sky.
++ You are a hunter. The townsfolk tell of a beast that roams the woods at night. Perhaps you could hunt it.
++ You stop at an intersection of forked pathways. The path on the right winds up a hill. The path on the left curves down to where a lake lies.
+
++ #[Walk to the lake>2]
++ #[Walk up the hill>3]
+
+======You may divide Pages like this
+img: #314136
+col: #f5f5f5
+
+til: The Lakeside
+con:
++ The path takes you along the side of a lake. The lake's inky waters shimmer in the moonlight. Fireflies dance among the shrubs.
+
++ #[Continue walking along the bank>5]
++ #[Walk back to the intersection>4]
+
+=====You may divide Pages like this======
+img: #314136
+col: #f5f5f5
+
+til: Atop a Hill
+con:
++ The path takes you up a hill, a little higher than most of the treetops. The moon casts its pale light around you. You can see a column of smoke nearby. At its base, you see the faint flicker of a campfire.
+
++ #[Walk towards the fire>6]
++ #[Walk back to the intersection>4]
+
+=4
+img: #314136
+col: #f5f5f5
+
+til: Forked Pathways
+con:
++ You walk back to the intersection of forked pathways.
+
++ #[Walk to the lake>2]
++ #[Walk up the hill>3]
+
+=5
+img: #314136
+col: #f5f5f5
+
+til: Along the Lakeside
+con:
++ You continue walking along the side of the lake. The water is calm. A chorus of crickets chime in with the beats of your footsteps. An owl hoots from somewhere in the dark trees.
++ Suddenly, you hear something speed through the nearby bushes. You instinctively ready your bow and arrow. You hear it again. It sounds like its coming towards you.
+
++ #[Stand your ground and prepare to shoot>7]
++ #[Run like hell>8]
+
+=6
+img: #314136
+col: #f5f5f5
+
+til: Along the Lakeside
+con:
++ You walk towards the fire. The trees around you sway gently in the breeze. The moon watches over you like a pale guardian. An owl glides above you in a silent flight.
++ Suddenly, you hear something speed through the nearby bushes. You instinctively ready your bow and arrow. You hear it again. It sounds like its coming towards you.
+
++ #[Stand your ground and prepare to shoot>7]
++ #[Run like hell>8]
+
+=7
+img: #8C0E0E
+col: #f5f5f5
+
+til: Game Over
+con:
++ The beast leaps out of nowhere and lunges at you, giving you no time to react. It feasts on your flesh.
+
++ #[Wow, your story sucks>9]
+
+=8
+img: #8C0E0E
+col: #f5f5f5
+
+til: Game Over
+con:
++ You tried to run. The beast feasts on your flesh.
+
++ #[Wow, your story sucks>9]
+
+=9
+img: #2a2a2a
+col: #f5f5f5
+
+til: Lol
+con:
+
++ It's a demo. The .txt file for this demo can be found in the GitHub repository. I'd love to see what you can make with Texte.

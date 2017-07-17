@@ -6,5 +6,8 @@ Texte is a fork of and inspired by [Visor](https://github.com/v-exec/Visor) by @
 
 Texte is currently in development.
 
+## Demo
+To run the demo, download the demo.txt file and drag and drop it onto [Texte](https://joshavanier.github.io/texte/)
+
 ## License
 MIT
