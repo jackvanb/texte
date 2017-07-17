@@ -4,7 +4,7 @@ var slides = [], //holds all slides
 
 //colors
 var fro,
-		int;
+		int
 
 //loads relevant presentation information
 function loadSlide(n) {

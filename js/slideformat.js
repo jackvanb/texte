@@ -9,7 +9,7 @@ function formatString(string, symbol) {
 
 		while (positions.length > 0) {
 			//find closing ']'
-			var end = string.indexOf(']', positions[0])
+			let end = string.indexOf(']', positions[0])
 
 			//check if any other '[]' pairs exist within substring, suggesting we haven't found the proper ']'
 			//find next ']' until we've found the proper ']'
@@ -18,7 +18,7 @@ function formatString(string, symbol) {
 			}
 
 			//run proper format rule
-			var selectString = string.substring(positions[0], end + 1),
+			let selectString = string.substring(positions[0], end + 1),
 					format
 
 			switch (symbol) {
@@ -42,12 +42,13 @@ function formatString(string, symbol) {
 			positions = allStringPositions(string, symbol + '[')
 		}
 	}
+
 	return string
 }
 
 //finds all instances of a substring(needle) in a string(haystack)
 function allStringPositions(haystack, needle) {
-	var offset = 0,
+	let offset = 0,
 			all = [],
 			pos;
 
@@ -59,18 +60,12 @@ function allStringPositions(haystack, needle) {
 	return all
 }
 
-//takes string and makes it italic
 function makeItalic(string) {
-	string = cleanString(string)
-	string = '<em>' + string + '</em>'
-	return string
+	return '<em>' + cleanString(string) + '</em>'
 }
 
-//takes string and makes it bold
 function makeBold(string) {
-	string = cleanString(string)
-	string = '<strong>' + string + '</strong>'
-	return string
+	return '<b>' + cleanString(string) + '</b>'
 }
 
 //takes $string and makes it into custom link with custom $style

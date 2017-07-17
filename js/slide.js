@@ -16,17 +16,17 @@ function Slide(img, col, sec, til, con) {
 //parses through array of lines (pres) and creates all slides
 function createSlides(pres) {
 	//list of all possible attributes
-	var attributes = ['fro', 'int', 'img', 'col', 'sec', 'til', 'con']
+	let attributes = ['fro', 'int', 'img', 'col', 'sec', 'til', 'con'],
 
 	//attributes to be used to define slide
-	var img = '',
+			img = '',
 			col = '',
 			sec = '',
 			til = '',
-			con = ''
+			con = '',
 
 	//manage information retrieval
-	var currentKey,
+			currentKey,
 			newKey,
 			value,
 			atSlides = false,
@@ -45,8 +45,7 @@ function createSlides(pres) {
 
 			// Everything that precedes the first '=' isn't a slide
 			if (atSlides) {
-				var s = new Slide(img, col, sec, til, con)
-				slides.push(s)
+				slides.push(new Slide(img, col, sec, til, con))
 
 				//reset title, content, and notes (other values can stay, so as to avoid redundancy)
 				til = ''
@@ -57,7 +56,7 @@ function createSlides(pres) {
 
 		//go through each attribute and see if line begins with its declaration
 
-		var al = attributes.length,
+		let al = attributes.length,
 				j
 
 		for (j = 0; j < al; j++) {
@@ -109,8 +108,7 @@ function createSlides(pres) {
 		}
 	}
 	//push last slide
-	var s = new Slide(img, col, sec, til, con)
-	slides.push(s)
+	slides.push(new Slide(img, col, sec, til, con))
 
 	//load first slide
 	loadSlide(0)
