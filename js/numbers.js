@@ -1,14 +1,9 @@
 //updates percentage
 function updatePercentage(currentNum, allNum) {
-	var percentage = (currentNum / allNum) * 100
+	let per = (currentNum / allNum) * 100
 
-	percentage = percentage.toFixed(2)
-	if (percentage < 10)
-		percentage = formatNum(percentage)
+	per = per.toFixed(2)
+	if (per < 10) per = "0" + per
 
-	document.getElementById('percent').innerHTML = percentage + '%'
-
-	function formatNum(num) {
-		return "0" + num
-	}
+	document.getElementById('percent').innerHTML = per + '%'
 }

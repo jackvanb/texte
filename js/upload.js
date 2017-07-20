@@ -18,10 +18,10 @@ function handleFileSelect(evt) {
 				l
 
 		for (l = 0; l < ll; l++)
-			presentation.push(lines[l])
+			Texte.lif.push(lines[l])
 
 		dropZone.parentNode.removeChild(dropZone)
-		createSlides(presentation)
+		Texte.page.createPages(Texte.lif)
 	}
 
 	reader.readAsText(file)
