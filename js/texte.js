@@ -34,16 +34,16 @@ var Texte = {
     con.style.backgroundColor = crp.img
 
     // Set title
-    let ttl = document.createElement("div")
-    ttl.insertAdjacentHTML("afterbegin", crp.til)
-    ttl.style.color = crp.col
+    ins("div", crp.til)
 
     // Set Page content
-    let pgc = document.createElement("span")
-    pgc.insertAdjacentHTML("afterbegin", crp.con)
-    pgc.style.color = crp.col
-    pgc.className = "content-text"
+    ins("span", crp.con)
 
-    con.appendChild(pgc)
+    function ins(a, b) {
+      let e = document.createElement(a)
+      e.insertAdjacentHTML("afterBegin", b)
+      e.style.color = crp.col
+      con.appendChild(e)
+    }
   }
 }

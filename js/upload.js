@@ -17,8 +17,9 @@ function handleFileSelect(evt) {
 				ll = lines.length,
 				l
 
-		for (l = 0; l < ll; l++)
-			Texte.lif.push(lines[l])
+		for (l = 0; l < ll; l++) {
+      Texte.lif.push(lines[l])
+    }
 
 		dropZone.parentNode.removeChild(dropZone)
 		Texte.page.createPages(Texte.lif)
@@ -29,6 +30,6 @@ function handleFileSelect(evt) {
 
 //on drag over
 function handleDragOver(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
+	evt.stopPropagation()
+	evt.preventDefault()
 }

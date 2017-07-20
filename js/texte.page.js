@@ -48,7 +48,7 @@ Texte.page = {
   			if (atp) {
   				Texte.sto.push(new Page(img, col, sec, til, con))
 
-  				// Reset title, content, and notes (other values can stay, so as to avoid redundancy)
+  				// Reset title and content (other values can stay, so as to avoid redundancy)
   				til = ''
   				con = ''
   			} else atp = true
@@ -56,7 +56,6 @@ Texte.page = {
   		}
 
   		// Go through each attribute and see if line begins with its declaration
-
   		let al = att.length, j
   		for (j = 0; j < al; j++) {
   			if (fil[i].substring(0, att[j].length + 1) === att[j] + ':') {
@@ -78,7 +77,7 @@ Texte.page = {
           val = val + fil[i]
   		}
 
-  		// Assign value to attribute for slide
+  		// Assign value to attribute for Page
   		switch (crk) {
   			case 'img':
   				img = val;
@@ -103,10 +102,11 @@ Texte.page = {
   				break;
   		}
   	}
+    
   	// Push last slide
   	Texte.sto.push(new Page(img, col, sec, til, con))
 
-  	//load first slide
+  	// Load first slide
   	Texte.loadPage(0)
   },
 
@@ -118,11 +118,11 @@ Texte.page = {
   		let pos = Texte.page.allStringPositions(str, sym + '[')
 
   		while (pos.length > 0) {
-  			//find closing ']'
+  			// Find closing ']'
   			let end = str.indexOf(']', pos[0])
 
-  			//check if any other '[]' pairs exist within substring, suggesting we haven't found the proper ']'
-  			//find next ']' until we've found the proper ']'
+  			// Check if any other '[]' pairs exist within substring, suggesting we haven't found the proper ']'
+  			// Find next ']' until we've found the proper ']'
   			while (Texte.page.allStringPositions(str.substring(pos[0], end, '[')).length != Texte.page.allStringPositions(str.substring(pos[0], end), ']').length) {
   				end = str.indexOf(']', end + 1)
   			}
@@ -169,16 +169,16 @@ Texte.page = {
   },
 
   makeItalic: function(s) {
-  	return '<em>' + Texte.page.cleanString(s) + '</em>'
+  	return '<em>' + Texte.page.clean(s) + '</em>'
   },
 
   makeBold: function(s) {
-  	return '<b>' + Texte.page.cleanString(s) + '</b>'
+  	return '<b>' + Texte.page.clean(s) + '</b>'
   },
 
   // Takes $string and makes it into custom link with custom $style
   createCustomLink: function(s) {
-  	s = Texte.page.cleanString(s)
+  	s = Texte.page.clean(s)
 
   	let acs = s.indexOf('>'), // accessor
   			wrd = s.substring(0, acs), // word
@@ -187,11 +187,11 @@ Texte.page = {
   	wrd = wrd.trim()
   	lnk = lnk.trim()
 
-  	return '<a onclick="Texte.loadPage(' + lnk + ')" class="intended-link">' + wrd + '</a>';
+  	return '<a onclick="Texte.loadPage(' + lnk + ')">' + wrd + '</a>'
   },
 
   // Removes symbol and [] from string
-  cleanString: function(s) {
+  clean: function(s) {
   	s = s.substring(2)
   	s = s.substring(0, s.length - 1)
   	return s
