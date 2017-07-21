@@ -30,13 +30,10 @@ var Texte = {
       con.removeChild(con.firstChild)
     }
 
-    // Set background
-    con.style.backgroundColor = crp.img
+    con.style.backgroundColor = crp.bg
 
-    // Set title
+    // Set title & Page content
     ins("div", crp.til)
-
-    // Set Page content
     ins("span", crp.con)
 
     function ins(a, b) {

@@ -4,14 +4,15 @@
 
 */
 
-function Page(img, col, sec, til, con) {
-  this.img = img
+"use strict";
+
+function Page(id, bg, col, sec, til, con) {
+  this.id = id
+  this.bg = bg
   this.col = col
   this.sec = sec
   this.til = til
   this.con = con
-
-  // this.image = img
 
   this.con = Texte.page.formatString(this.con, '#')
   this.con = Texte.page.formatString(this.con, '_')
@@ -23,30 +24,33 @@ Texte.page = {
 
   // Parses through array of lines and creates Pages
   createPages(fil) {
-    let att = ["fro", "int", "img", "col", "sec", "til", "con"],
+    let att = ["id", "bg", "col", "sec", "til", "con"],
 
     // Attributes to be used to define Page
-  			img = '', col = '', sec = '',
-  			til = '', con = '',
+    id = '',
+		bg = '', col = '', sec = '',
+		til = '', con = '',
 
   	// Manage information retrieval
-  			crk, // current key
-        nky, // new key
-  			val, // value
-        atp = false, // at Pages
+		crk, // current key
+    nky, // new key
+		val, // value
+    atp = false, // at Pages
 
-  			pl = fil.length, i
+  	pl = fil.length, i
   	for (i = 0; i < pl; i++) {
   		nky = false
 
   		// Skip comments and empty lines
   		if (fil[i].substring(0, 2) === '//' || fil[i].length == 1) continue
 
-  		// Start new slide if line starts with '='
-  		if (fil[i].substring(0, 1) === '=') {
+  		// Start new Page if line starts with '='
+  		if (fil[i].substring(0, 1) === '$') {
   			// Everything that precedes the first '=' isn't a slide
   			if (atp) {
-  				Texte.sto.push(new Page(img, col, sec, til, con))
+  				Texte.sto.push(new Page(id, bg, col, sec, til, con))
+
+          // Texte.sto[]
 
   				// Reset title and content (other values can stay, so as to avoid redundancy)
   				til = ''
@@ -58,8 +62,8 @@ Texte.page = {
   		// Go through each attribute and see if line begins with its declaration
   		let al = att.length, j
   		for (j = 0; j < al; j++) {
+        // Key found, get line's value
   			if (fil[i].substring(0, att[j].length + 1) === att[j] + ':') {
-  				// Once key has been found, update $currentKey, and get the line's value
   				crk = att[j]
   				val = fil[i].substring(crk.length + 1, fil[i].length)
   				val = val.trim()
@@ -77,10 +81,13 @@ Texte.page = {
           val = val + fil[i]
   		}
 
-  		// Assign value to attribute for Page
+  		// Assign value to attribute
   		switch (crk) {
-  			case 'img':
-  				img = val;
+        case "id":
+          id = val;
+          break;
+  			case 'bg':
+  				bg = val;
   				break;
   			case 'col':
   				col = val;
@@ -94,17 +101,17 @@ Texte.page = {
   			case 'con':
   				con = val;
   				break;
-  			case 'fro':
-  				fro = val;
-  				break;
-  			case 'int':
-  				int = val;
-  				break;
+  			// case 'fro':
+  			// 	fro = val;
+  			// 	break;
+  			// case 'int':
+  			// 	int = val;
+  			// 	break;
   		}
   	}
-    
+
   	// Push last slide
-  	Texte.sto.push(new Page(img, col, sec, til, con))
+  	Texte.sto.push(new Page(id, bg, col, sec, til, con))
 
   	// Load first slide
   	Texte.loadPage(0)
