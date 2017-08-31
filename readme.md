@@ -8,7 +8,7 @@ Texte is a fork of and inspired by [Visor](https://github.com/v-exec/Visor) by @
 
 Texte is currently in development.
 
-## Planned Features
+## ■
 
 - Gradient backgrounds
 - Transitions between pages (fade)
@@ -20,10 +20,10 @@ Texte is currently in development.
 
 ## Demo
 
-To run the demo, download the demo.txt file and drag and drop it onto [Texte](https://joshavanier.github.io/texte/)
+Download the demo.txt file and drag and drop it onto [Texte](https://joshavanier.github.io/texte/)
 
---------------------------------------------------------------------------------
+---
 
 Josh Avanier
 
-[![@joshavanier](https://joshavanier.github.io/badges/github.svg)](https://github.com/joshavanier) [![@joshavanier](https://joshavanier.github.io/badges/twitter.svg)](https://twitter.com/joshavanier) [![joshavanier.com](https://joshavanier.github.io/badges/website.svg)](https://joshavanier.com)
+[![@joshavanier](https://joshavanier.github.io/badges/twitter.svg)](https://twitter.com/joshavanier) [![joshavanier.com](https://joshavanier.github.io/badges/website.svg)](https://joshavanier.com)
