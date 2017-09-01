@@ -9,7 +9,7 @@ con:
 
 $forestPath
 bg: #634954
-col: #f5f5f5
+col: #f8f8f8
 
 til: A Forest Path
 con:
@@ -22,7 +22,7 @@ con:
 
 $=
 bg: #314136
-col: #f5f5f5
+col: #f8f8f8
 
 til: The Lakeside
 con:
@@ -33,7 +33,7 @@ con:
 
 $=
 bg: #314136
-col: #f5f5f5
+col: #f8f8f8
 
 til: Atop a Hill
 con:
@@ -44,7 +44,7 @@ con:
 
 $4
 bg: #314136
-col: #f5f5f5
+col: #f8f8f8
 
 til: Forked Pathways
 con:
@@ -55,7 +55,7 @@ con:
 
 $5
 bg: #314136
-col: #f5f5f5
+col: #f8f8f8
 
 til: Along the Lakeside
 con:
@@ -67,7 +67,7 @@ con:
 
 $6
 bg: #314136
-col: #f5f5f5
+col: #f8f8f8
 
 til: Along the Lakeside
 con:
@@ -79,7 +79,7 @@ con:
 
 $7
 bg: #8C0E0E
-col: #f5f5f5
+col: #f8f8f8
 
 til: Game Over
 con:
@@ -89,7 +89,7 @@ con:
 
 $8
 bg: #8C0E0E
-col: #f5f5f5
+col: #f8f8f8
 
 til: Game Over
 con:
@@ -99,7 +99,7 @@ con:
 
 $9
 bg: #2a2a2a
-col: #f5f5f5
+col: #f8f8f8
 
 til: Lol
 con:
