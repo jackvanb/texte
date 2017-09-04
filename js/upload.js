@@ -10,16 +10,13 @@ function handleFileSelect(evt) {
 	evt.preventDefault()
 
 	let file = evt.dataTransfer.files[0],
-			reader = new FileReader()
+		reader = new FileReader()
 
-	reader.onload = function(progressEvent){
-		let lines = this.result.split('\n'),
-				ll = lines.length,
-				l
+	reader.onload = function(progressEvent) {
+		let lines = this.result.split('\n')
 
-		for (l = 0; l < ll; l++) {
-      Texte.lif.push(lines[l])
-    }
+		for (let l = 0, ll = lines.length; l < ll; l++)
+			Texte.lif.push(lines[l])
 
 		dropZone.parentNode.removeChild(dropZone)
 		Texte.page.createPages(Texte.lif)

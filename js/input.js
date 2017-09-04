@@ -1,8 +1,8 @@
 // to be used for development
 
 //track keyboard input
-window.onload = function(){
-	document.onkeypress = function(e){
+window.onload = function() {
+	document.onkeypress = function(e) {
 		key = code(e)
 
 		//.
@@ -18,5 +18,5 @@ window.onload = function(){
 //get keycode
 function code(e) {
 	e = e || window.event
-	return(e.keyCode || e.which)
+	return (e.keyCode || e.which)
 }

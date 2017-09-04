@@ -1,125 +1,123 @@
-/*-----------GENERAL-----------*/
-
-html, body {
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #202020;
-  overflow: hidden;
-  color: #f8f8f8;
-  font: 16px/1.618em "Roboto Mono", monospace
+html,
+body {
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #202020;
+	overflow: hidden;
+	color: #f8f8f8;
+	font: 16px/1.618em "Roboto Mono", monospace
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  font-weight: inherit;
-  margin: 0;
-  padding: 0
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	font-weight: inherit;
+	margin: 0;
+	padding: 0
 }
 
 ::-moz-selection {
-  color: #202020;
-  background: #f8f8f8
+	color: #202020;
+	background: #f8f8f8
 }
 
 ::selection {
-  color: #202020;
-  background: #f8f8f8
+	color: #202020;
+	background: #f8f8f8
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
-  background-color: #444
+	width: 4px;
+	background-color: #444
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #aaa
+	background-color: #aaa
 }
-
 
 /*-----------DROP ZONE-----------*/
 
 #drop {
-  position: relative;
-  width: 400px;
-  height: 200px;
-  top: calc(50% - 100px);
-  margin: auto;
-  background-color: #f8f8f8;
-  color: #202020;
-  text-align: center;
-  padding-top: calc(100px - 16px / 2);
-  font-family: "Roboto Mono", monospace
+	position: relative;
+	width: 400px;
+	height: 200px;
+	top: calc(50% - 100px);
+	margin: auto;
+	background-color: #f8f8f8;
+	color: #202020;
+	text-align: center;
+	padding-top: calc(100px - 16px / 2);
+	font-family: "Roboto Mono", monospace
 }
-
 
 /*-----------STATIC-----------*/
 
 #body {
-  width: 100%;
-  height: 100%;
-  float: left;
-  background-size: cover;
-  background-position: center;
-  overflow-y: auto;
-  overflow-x: hidden
+	width: 100%;
+	height: 100%;
+	float: left;
+	background-size: cover;
+	background-position: center;
+	overflow-y: auto;
+	overflow-x: hidden
 }
 
 #count {
-  position: absolute;
-  width: 80px;
-  height: 30px;
-  right: 30px;
-  bottom: 25px;
-  text-align: center
+	position: absolute;
+	width: 80px;
+	height: 30px;
+	right: 30px;
+	bottom: 25px;
+	text-align: center
 }
 
 #percent {
-  font-weight: 400
+	font-weight: 400
 }
-
 
 /*-----------DYNAMIC - CONTENT-----------*/
 
 #content {
-  width: 100%;
-  height: 100%;
-  font-family: "Roboto", sans-serif;
-  padding: 60px
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto", sans-serif;
+	padding: 60px
 }
 
 #content p {
-  font-size: 1em;
-  max-width: 30em;
-  margin: 1.618em 0
+	font-size: 1em;
+	max-width: 30em;
+	margin: 1.618em 0
 }
 
 #content p.l {
-  margin: 0
+	margin: 0
 }
 
 #content p.l:first-of-type {
-  margin-top: 1.618em
+	margin-top: 1.618em
 }
 
 #content p.l:last-of-type {
-  margin-bottom: 1.618em
+	margin-bottom: 1.618em
 }
 
 .content-indent {
-  display: block;
-  margin-top: 20px
+	display: block;
+	margin-top: 20px
 }
 
 .intended-link {
-  cursor: pointer;
-  display: block;
-  font-size: 1em;
-  background-color: transparent;
-  color: inherit;
-  text-decoration: underline
+	cursor: pointer;
+	display: block;
+	font-size: 1em;
+	background-color: transparent;
+	color: inherit;
+	text-decoration: underline
 }
 
 b {
-  font-weight: 700
+	font-weight: 700
 }
