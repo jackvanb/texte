@@ -1,8 +1,7 @@
-# Texte
+![MIT License](https://joshavanier.github.io/badges/svg/mit.svg)
+![STASIS](https://joshavanier.github.io/badges/svg/stasis.svg "This project is in stasis. Further development may continue in the future")
 
-![MIT License](https://joshavanier.github.io/badges/mit.svg)
-
-Texte is a tool for writing text-based games. Basically you write out your game on a text file and Texte will parse it and generate the game for you.
+**Texte** is a tool for writing text-based games. Basically you write out your game on a text file and Texte will parse it and generate the game for you.
 
 Texte is a fork of and inspired by [Visor](https://github.com/v-exec/Visor) by @v-exec, which renders presentations from text files.
 
@@ -26,4 +25,4 @@ Download the demo.txt file and drag and drop it onto [Texte](https://joshavanier
 
 Josh Avanier
 
-[![@joshavanier](https://joshavanier.github.io/badges/twitter.svg)](https://twitter.com/joshavanier) [![joshavanier.com](https://joshavanier.github.io/badges/website.svg)](https://joshavanier.com)
+[![@joshavanier](https://joshavanier.github.io/badges/mit/twitter.svg)](https://twitter.com/joshavanier) [![joshavanier.com](https://joshavanier.github.io/badges/mit/website.svg)](https://joshavanier.com)
