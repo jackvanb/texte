@@ -1,9 +1,8 @@
 ![MIT License](https://joshavanier.github.io/badges/svg/mit.svg)
-![STASIS](https://joshavanier.github.io/badges/svg/stasis.svg "This project is in stasis. Further development may continue in the future")
 
 **Texte** is a tool for writing text-based games. Basically you write out your game on a text file and Texte will parse it and generate the game for you.
 
-Texte is a fork of and inspired by [Visor](https://github.com/v-exec/Visor) by @v-exec, which renders presentations from text files.
+Texte is a fork of and inspired by [Visor](https://github.com/v-exec/Visor) by [[vi]](https://github.com/v-exec/), which renders presentations from text files.
 
 Texte is currently in development.
 
