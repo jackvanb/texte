@@ -6,27 +6,27 @@ dropZone.addEventListener('drop', handleFileSelect, false)
 
 //drop handler
 function handleFileSelect(evt) {
-	evt.stopPropagation()
-	evt.preventDefault()
+  evt.stopPropagation()
+  evt.preventDefault()
 
-	let file = evt.dataTransfer.files[0],
-		reader = new FileReader()
+  let file = evt.dataTransfer.files[0],
+    reader = new FileReader()
 
-	reader.onload = function(progressEvent) {
-		let lines = this.result.split('\n')
+  reader.onload = function(progressEvent) {
+    let lines = this.result.split('\n')
 
-		for (let l = 0, ll = lines.length; l < ll; l++)
-			Texte.lif.push(lines[l])
+    for (let l = 0, ll = lines.length; l < ll; l++)
+      Texte.lif.push(lines[l])
 
-		dropZone.parentNode.removeChild(dropZone)
-		Texte.page.createPages(Texte.lif)
-	}
+    dropZone.parentNode.removeChild(dropZone)
+    Texte.page.createPages(Texte.lif)
+  }
 
-	reader.readAsText(file)
+  reader.readAsText(file)
 }
 
 //on drag over
 function handleDragOver(evt) {
-	evt.stopPropagation()
-	evt.preventDefault()
+  evt.stopPropagation()
+  evt.preventDefault()
 }

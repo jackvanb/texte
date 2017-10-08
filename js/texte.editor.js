@@ -9,12 +9,12 @@
 Texte = window.Texte || {}
 Texte.editor = {
 
-	status: false,
+  status: false,
 
-	// Set environment to Editor mode
+  // Set environment to Editor mode
 
-	set: function() {
-		Texte.editor.status = true
-	}
+  set: function() {
+    Texte.editor.status = true
+  }
 
 }
