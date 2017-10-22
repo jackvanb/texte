@@ -1,12 +1,10 @@
-/*
-
-  Texte
-
-  Write your own text-based games
-
-  Josh Avanier
-
-*/
+/**
+ * Texte
+ * Write text-based games
+ *
+ * @author Josh Avanier
+ * @license MIT
+ */
 
 "use strict";
 
@@ -16,30 +14,27 @@ var Texte = {
   sto: [], // holds Pages
   pgn: 0, // current Page number
 
-  loadPage: function(n) {
+  loadPage(n) {
     Texte.pgn = n
     Texte.loadContent()
   },
 
-  loadContent: function() {
+  loadContent() {
     let crp = Texte.sto[Texte.pgn],
-      con = document.getElementById("content")
+        con = document.getElementById("content"),
 
-    // Clear
-    while (con.firstChild)
-      con.removeChild(con.firstChild)
-
-    con.style.backgroundColor = crp.bg
-
-    // Set title & Page content
-    ins("div", crp.til)
-    ins("span", crp.con)
-
-    function ins(a, b) {
+    ins = (a, b) => {
       let e = document.createElement(a)
       e.insertAdjacentHTML("afterBegin", b)
       e.style.color = crp.col
       con.appendChild(e)
     }
+
+    while (con.firstChild) con.removeChild(con.firstChild)
+
+    con.style.backgroundColor = crp.bg
+
+    ins("div", crp.til)
+    ins("span", crp.con)
   }
 }

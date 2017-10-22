@@ -24,22 +24,27 @@ Texte = window.Texte || {}
 Texte.page = {
 
   // Parses through array of lines and creates Pages
+
+  /**
+   * Parse through array of lines and create Pages
+   * @param {Object[]} fil - Array of lines
+   */
+
   createPages(fil) {
     let att = ["id", "bg", "col", "sec", "til", "con"],
 
-      // Attributes to be used to define Page
-      id = '',
-      bg = '',
-      col = '',
-      sec = '',
-      til = '',
-      con = '',
+        id = '',
+        bg = '',
+        col = '',
+        sec = '',
+        til = '',
+        con = '',
 
-      // Manage information retrieval
-      crk, // current key
-      nky, // new key
-      val, // value
-      atp = false, // at Pages
+        // Manage information retrieval
+        crk, // current key
+        nky, // new key
+        val, // value
+        atp = false // at Pages
 
       for (let i = 0, pl = fil.length; i < pl; i++) {
         nky = false
@@ -52,8 +57,6 @@ Texte.page = {
           // Everything that precedes the first '=' isn't a slide
           if (atp) {
             Texte.sto.push(new Page(id, bg, col, sec, til, con))
-
-            // Texte.sto[]
 
             // Reset title and content (other values can stay, so as to avoid redundancy)
             til = ''
@@ -76,9 +79,11 @@ Texte.page = {
         // If key wasn't found, continue adding to the previously acquired attribute
         if (!nky) {
           if (fil[i].substring(0, 1) === '+')
-            val = val + '<p>' + fil[i].substring(1, fil[i].length) + '</p>'
+            // val = val + '<p>' + fil[i].substring(1, fil[i].length) + '</p>'
+            val = `${val}<p>${fil[i].substring(1, fil[i].length)}</p>`
           else if (fil[i].substring(0, 1) === '-')
-            val = val + '<p class="l">' + fil[i].substring(1, fil[i].length) + '</p>'
+            // val = val + '<p class="l">' + fil[i].substring(1, fil[i].length) + '</p>'
+            val = `${val}<p class="l">${fil[i].substring(1, fil[i].length)}</p>`
           else
             val = val + fil[i]
         }
@@ -103,12 +108,6 @@ Texte.page = {
           case 'con':
             con = val;
             break;
-            // case 'fro':
-            //   fro = val;
-            //   break;
-            // case 'int':
-            //   int = val;
-            //   break;
         }
       }
 
@@ -119,7 +118,7 @@ Texte.page = {
     Texte.loadPage(0)
   },
 
-  formatString: function(str, sym) {
+  formatString(str, sym) {
     // Check for bracket mismatches
     if (Texte.page.allStringPositions(str, '[').length != Texte.page.allStringPositions(str, ']').length) {
       window.alert('Uneven number of brackets found in string: \n\n ' + str)
@@ -164,7 +163,7 @@ Texte.page = {
   },
 
   // Finds all instances of a substring(needle) in a string(haystack)
-  allStringPositions: function(hay, ndl) {
+  allStringPositions(hay, ndl) {
     let off = 0, // offset
       all = [],
       pos
@@ -177,21 +176,28 @@ Texte.page = {
     return all
   },
 
-  makeItalic: function(s) {
+  makeItalic(s) {
     return '<em>' + Texte.page.clean(s) + '</em>'
   },
 
-  makeBold: function(s) {
+  makeBold(s) {
     return '<b>' + Texte.page.clean(s) + '</b>'
   },
 
   // Takes $string and makes it into custom link with custom $style
-  createCustomLink: function(s) {
+
+  /**
+   * Generate custom link with custom style
+   * @param {string} s - The string
+   * @returns {string} Custom link
+   */
+
+  createCustomLink(s) {
     s = Texte.page.clean(s)
 
-    let acs = s.indexOf('>'), // accessor
-      wrd = s.substring(0, acs), // word
-      lnk = s.substring(acs + 1, s.length) // link
+    let acs = s.indexOf('>'),
+        wrd = s.substring(0, acs),
+        lnk = s.substring(acs + 1, s.length)
 
     wrd = wrd.trim()
     lnk = lnk.trim()
@@ -199,10 +205,14 @@ Texte.page = {
     return '<a onclick="Texte.loadPage(' + lnk + ')">' + wrd + '</a>'
   },
 
-  // Removes symbol and [] from string
-  clean: function(s) {
+  /**
+   * Remove symbol and [] from string
+   * @param {string} s - The string
+   * @returns {string} The cleaned string
+   */
+
+  clean(s) {
     s = s.substring(2)
-    s = s.substring(0, s.length - 1)
-    return s
+    return s.substring(0, s.length - 1)
   }
 }

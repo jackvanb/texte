@@ -6,12 +6,10 @@ window.onload = function() {
     key = code(e)
 
     //.
-    if (key == 44 && slideNum > 0)
-      loadSlide(slideNum - 1)
+    if (key == 44 && slideNum > 0) loadSlide(slideNum - 1)
 
     //,
-    if (key == 46 && slideNum < slides.length - 1)
-      loadSlide(slideNum + 1)
+    if (key == 46 && slideNum < slides.length - 1) loadSlide(slideNum + 1)
   }
 }
 

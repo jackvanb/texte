@@ -13,8 +13,7 @@ Texte.editor = {
 
   // Set environment to Editor mode
 
-  set: function() {
+  set() {
     Texte.editor.status = true
   }
-
 }
