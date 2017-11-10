@@ -9,15 +9,16 @@ function handleFileSelect(evt) {
   evt.stopPropagation()
   evt.preventDefault()
 
-  let file = evt.dataTransfer.files[0],
-    reader = new FileReader()
+  let file = evt.dataTransfer.files[0]
+  let reader = new FileReader()
 
   reader.onload = function(progressEvent) {
     let lines = this.result.split('\n')
 
-    for (let l = 0, ll = lines.length; l < ll; l++)
+    for (let l = 0, ll = lines.length; l < ll; l++) {
       Texte.lif.push(lines[l])
-
+    }
+      
     dropZone.parentNode.removeChild(dropZone)
     Texte.page.createPages(Texte.lif)
   }

@@ -6,7 +6,7 @@
  * @license MIT
  */
 
-"use strict";
+'use strict';
 
 var Texte = {
 
@@ -20,21 +20,23 @@ var Texte = {
   },
 
   loadContent() {
-    let crp = Texte.sto[Texte.pgn],
-        con = document.getElementById("content"),
+    let crp = Texte.sto[Texte.pgn]
+    let con = document.getElementById('content')
 
-    ins = (a, b) => {
+    let ins = (a, b) => {
       let e = document.createElement(a)
-      e.insertAdjacentHTML("afterBegin", b)
+      e.insertAdjacentHTML('afterBegin', b)
       e.style.color = crp.col
       con.appendChild(e)
     }
 
-    while (con.firstChild) con.removeChild(con.firstChild)
+    while (con.firstChild) {
+      con.removeChild(con.firstChild)
+    }
 
     con.style.backgroundColor = crp.bg
 
-    ins("div", crp.til)
-    ins("span", crp.con)
+    ins('div', crp.til)
+    ins('span', crp.con)
   }
 }

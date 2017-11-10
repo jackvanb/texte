@@ -4,8 +4,6 @@
 
 */
 
-"use strict";
-
 function Page(id, bg, col, sec, til, con) {
   this.id = id
   this.bg = bg
@@ -31,85 +29,84 @@ Texte.page = {
    */
 
   createPages(fil) {
-    let att = ["id", "bg", "col", "sec", "til", "con"],
+    let att = ['id', 'bg', 'col', 'sec', 'til', 'con']
 
-        id = '',
-        bg = '',
-        col = '',
-        sec = '',
-        til = '',
-        con = '',
+    let id = ''
+    let bg = ''
+    let col = ''
+    let sec = ''
+    let til = ''
+    let con = ''
 
-        // Manage information retrieval
-        crk, // current key
-        nky, // new key
-        val, // value
-        atp = false // at Pages
+    // Manage information retrieval
+    let crk // current key
+    let nky // new key
+    let val // value
+    let atp = false // at Pages
 
-      for (let i = 0, pl = fil.length; i < pl; i++) {
-        nky = false
+    for (let i = 0, pl = fil.length; i < pl; i++) {
+      nky = false
 
-        // Skip comments and empty lines
-        if (fil[i].substring(0, 2) === '//' || fil[i].length == 1) continue
+      // Skip comments and empty lines
+      if (fil[i].substring(0, 2) === '//' || fil[i].length == 1) continue
 
-        // Start new Page if line starts with '='
-        if (fil[i].substring(0, 1) === '$') {
-          // Everything that precedes the first '=' isn't a slide
-          if (atp) {
-            Texte.sto.push(new Page(id, bg, col, sec, til, con))
+      // Start new Page if line starts with '='
+      if (fil[i].substring(0, 1) === '$') {
+        // Everything that precedes the first '=' isn't a slide
+        if (atp) {
+          Texte.sto.push(new Page(id, bg, col, sec, til, con))
 
-            // Reset title and content (other values can stay, so as to avoid redundancy)
-            til = ''
-            con = ''
-          } else atp = true
-          continue
-        }
+          // Reset title and content (other values can stay, so as to avoid redundancy)
+          til = ''
+          con = ''
+        } else atp = true
+        continue
+      }
 
-        // Go through each attribute and see if line begins with its declaration
-        for (let j = 0, al = att.length; j < al; j++) {
-          // Key found, get line's value
-          if (fil[i].substring(0, att[j].length + 1) === att[j] + ':') {
-            crk = att[j]
-            val = fil[i].substring(crk.length + 1, fil[i].length)
-            val = val.trim()
-            nky = true
-          }
-        }
-
-        // If key wasn't found, continue adding to the previously acquired attribute
-        if (!nky) {
-          if (fil[i].substring(0, 1) === '+')
-            // val = val + '<p>' + fil[i].substring(1, fil[i].length) + '</p>'
-            val = `${val}<p>${fil[i].substring(1, fil[i].length)}</p>`
-          else if (fil[i].substring(0, 1) === '-')
-            // val = val + '<p class="l">' + fil[i].substring(1, fil[i].length) + '</p>'
-            val = `${val}<p class="l">${fil[i].substring(1, fil[i].length)}</p>`
-          else
-            val = val + fil[i]
-        }
-
-        // Assign value to attribute
-        switch (crk) {
-          case "id":
-            id = val;
-            break;
-          case 'bg':
-            bg = val;
-            break;
-          case 'col':
-            col = val;
-            break;
-          case 'sec':
-            sec = val;
-            break;
-          case 'til':
-            til = val;
-            break;
-          case 'con':
-            con = val;
-            break;
+      // Go through each attribute and see if line begins with its declaration
+      for (let j = 0, al = att.length; j < al; j++) {
+        // Key found, get line's value
+        if (fil[i].substring(0, att[j].length + 1) === att[j] + ':') {
+          crk = att[j]
+          val = fil[i].substring(crk.length + 1, fil[i].length)
+          val = val.trim()
+          nky = true
         }
       }
+
+      // If key wasn't found, continue adding to the previously acquired attribute
+      if (!nky) {
+        if (fil[i].substring(0, 1) === '+') {
+          val = `${val}<p>${fil[i].substring(1, fil[i].length)}</p>`
+        } else if (fil[i].substring(0, 1) === '-') {
+          val = `${val}<p class="l">${fil[i].substring(1, fil[i].length)}</p>`
+        } else {
+          val = val + fil[i]
+        }
+      }
+
+      // Assign value to attribute
+      switch (crk) {
+        case 'id':
+          id = val;
+          break;
+        case 'bg':
+          bg = val;
+          break;
+        case 'col':
+          col = val;
+          break;
+        case 'sec':
+          sec = val;
+          break;
+        case 'til':
+          til = val;
+          break;
+        case 'con':
+          con = val;
+          break;
+      }
+    }
 
     // Push last slide
     Texte.sto.push(new Page(id, bg, col, sec, til, con))
@@ -136,8 +133,8 @@ Texte.page = {
         }
 
         // Run proper format rule
-        let sls = str.substring(pos[0], end + 1), // select string
-          frm // format
+        let sls = str.substring(pos[0], end + 1) // select string
+        let frm // format
 
         switch (sym) {
           case '#':
@@ -164,9 +161,9 @@ Texte.page = {
 
   // Finds all instances of a substring(needle) in a string(haystack)
   allStringPositions(hay, ndl) {
-    let off = 0, // offset
-      all = [],
-      pos
+    let off = 0 // offset
+    let all = []
+    let pos
 
     while ((pos = hay.indexOf(ndl, off)) !== -1) {
       off = pos + 1
@@ -177,11 +174,11 @@ Texte.page = {
   },
 
   makeItalic(s) {
-    return '<em>' + Texte.page.clean(s) + '</em>'
+    return `<em>${Texte.page.clean(s)}</em>`
   },
 
   makeBold(s) {
-    return '<b>' + Texte.page.clean(s) + '</b>'
+    return `<b>${Texte.page.clean(s)}</b>`
   },
 
   // Takes $string and makes it into custom link with custom $style
@@ -195,14 +192,14 @@ Texte.page = {
   createCustomLink(s) {
     s = Texte.page.clean(s)
 
-    let acs = s.indexOf('>'),
-        wrd = s.substring(0, acs),
-        lnk = s.substring(acs + 1, s.length)
+    let acs = s.indexOf('>')
+    let wrd = s.substring(0, acs)
+    let lnk = s.substring(acs + 1, s.length)
 
     wrd = wrd.trim()
     lnk = lnk.trim()
 
-    return '<a onclick="Texte.loadPage(' + lnk + ')">' + wrd + '</a>'
+    return `<a onclick="Text.loadPage('${lnk}')">${wrd}</a>`
   },
 
   /**
