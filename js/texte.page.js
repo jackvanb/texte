@@ -199,7 +199,7 @@ Texte.page = {
     wrd = wrd.trim()
     lnk = lnk.trim()
 
-    return `<a onclick="Text.loadPage('${lnk}')">${wrd}</a>`
+    return `<a onclick="Texte.loadPage('${lnk}')">${wrd}</a>`
   },
 
   /**
