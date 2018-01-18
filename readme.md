@@ -8,7 +8,7 @@ Texte is a fork of and inspired by [Visor](https://github.com/v-exec/Visor) by [
 
 Texte is currently in development.
 
-## ■
+### ■
 
 - Gradient backgrounds
 - Transitions between pages (fade)
@@ -18,7 +18,7 @@ Texte is currently in development.
 - Declare variables in .txt file (could be used for things like coin counters or hp/xp bars)
 - A simpler way of writing. Less formatting rules, more writing
 
-## Demo
+### Demo
 
 Download the demo.txt file and drag and drop it onto [Texte](https://joshavanier.github.io/texte/)
 
